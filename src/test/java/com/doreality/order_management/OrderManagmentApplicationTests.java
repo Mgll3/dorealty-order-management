@@ -1,4 +1,4 @@
-package com.doreality.order_managment;
+package com.doreality.order_management;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
