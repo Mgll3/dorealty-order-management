@@ -22,7 +22,7 @@ public class Payment {
     private String paymentMethod;
 
     @Column(nullable = false)
-    private double amountPaid;
+    private Double amountPaid;
 
     private LocalDateTime paymentDate;
 

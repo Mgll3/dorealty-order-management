@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.UUID;
 
 import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -18,7 +17,7 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Order {
+public class CustomerOrder {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -30,7 +29,7 @@ public class Order {
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(nullable = false)
-    private List<OrderDetail> orderDetail;
+    private List<OrderDetail> orderDetails;
 
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(nullable = false)
@@ -38,6 +37,6 @@ public class Order {
 
     private LocalDate creationDate;
 
-    private double totalPrice;
+    private Double totalPrice;
 
 }
