@@ -17,11 +17,15 @@ public class OrderManagementApplication {
 	 * ? Crear carpetas y con manejo de errores
 	 * ? Crear entidades y montarlas en la DB
 	 * ? Agregar seguridad
-	 * Controladores y services de Create basicos
+	 * ?Controladores y services de Create basicos
+	 * Documentar en swagger
 	 * 
-	 * @Valid
+	 * Crear endpoint que valide el rol para poder ingresar spring security"
+	 * Crear Payment endpoint
 	 * 
 	 * 
+	 * 
+	 * Montar Interface al repository
 	 * Pruebas Unitarias
 	 * 
 	 * 

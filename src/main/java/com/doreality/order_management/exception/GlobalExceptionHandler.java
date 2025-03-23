@@ -33,11 +33,10 @@ public class GlobalExceptionHandler {
         return handleException(e, "DATA_ACCESS_ERROR", HttpStatus.NOT_FOUND);
     }
 
-    // @ExceptionHandler(UnauthorizedActionException.class)
-    // public ResponseEntity<ErrorResponse>
-    // handleUnauthorizedAction(UnauthorizedActionException e) {
-    // return handleException(e, "UNAUTHORIZED_ACTION", HttpStatus.FORBIDDEN);
-    // }
+    @ExceptionHandler(UnauthorizedActionException.class)
+    public ResponseEntity<ErrorResponse> handleUnauthorizedAction(UnauthorizedActionException e) {
+        return handleException(e, "UNAUTHORIZED_ACTION", HttpStatus.FORBIDDEN);
+    }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> handleValidationExceptions(MethodArgumentNotValidException ex) {
@@ -56,11 +55,15 @@ public class GlobalExceptionHandler {
         return handleException(e, "INVALID_ARGUMENT", HttpStatus.BAD_REQUEST);
     }
 
-    // @ExceptionHandler(JwtMissingException.class)
-    // public ResponseEntity<ErrorResponse>
-    // handleJwtMissingException(JwtMissingException e) {
-    // return handleException(e, "JWT_MISSING", HttpStatus.UNAUTHORIZED);
-    // }
+    @ExceptionHandler(JwtMissingException.class)
+    public ResponseEntity<ErrorResponse> handleJwtMissingException(JwtMissingException e) {
+        return handleException(e, "JWT_MISSING", HttpStatus.UNAUTHORIZED);
+    }
+
+    @ExceptionHandler(OrderSaveException.class)
+    public ResponseEntity<ErrorResponse> handleOrderSaveException(OrderSaveException e) {
+        return handleException(e, "ORDER_SAVE_ERROR", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 
     @ExceptionHandler({ ExpiredJwtException.class, UnsupportedJwtException.class, MalformedJwtException.class })
     public ResponseEntity<ErrorResponse> handleJwtException(Exception e) {

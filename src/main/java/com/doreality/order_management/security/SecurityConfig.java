@@ -83,7 +83,8 @@ public class SecurityConfig {
                                                                         // como STATELESS (sin sesiones)
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/v1/user/**", "/swagger-ui/**", "/swagger-ui.html/**", "/v3/api-docs/**",
+                .requestMatchers("/v1/user/**", "v1/customer-order/**", "/swagger-ui/**", "/swagger-ui.html/**",
+                        "/v3/api-docs/**",
                         "/logs/**")
                 .permitAll() // Permite acceso sin autenticación a las páginas de inicio, registro y login
                 .requestMatchers("/configuracion").hasAuthority("ADMINISTRATOR")

@@ -12,4 +12,6 @@ public interface IUserService {
     public AthAnswerDTO authenticate(LoginDTO loginDTO);
 
     public Boolean existsEmail(String email);
+
+    public User findByEmail(String email);
 }

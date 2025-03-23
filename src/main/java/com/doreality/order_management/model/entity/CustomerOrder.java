@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,10 +15,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import lombok.Data;
+import jakarta.persistence.OneToOne;
+import lombok.Getter;
 
 @Entity
-@Data
+@Getter
 public class CustomerOrder {
 
     @Id
@@ -25,18 +28,26 @@ public class CustomerOrder {
 
     @ManyToOne
     @JoinColumn(nullable = false)
-    private User costumer;
+    private User custumer;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(nullable = false)
-    private List<OrderDetail> orderDetails;
+    private OrderDetail orderDetail;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(nullable = false)
-    private List<Payment> payment;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(nullable = true)
+    private Payment payment;
 
     private LocalDate creationDate;
 
     private Double totalPrice;
+
+    public void setCustumer(User user) {
+        this.custumer = user;
+    }
+
+    public void setOrderDetail(OrderDetail orderDetail) {
+        this.orderDetail = orderDetail;
+    }
 
 }
