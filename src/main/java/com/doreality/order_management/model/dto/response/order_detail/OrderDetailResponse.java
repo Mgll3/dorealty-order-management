@@ -1,4 +1,4 @@
-package com.doreality.order_management.model.dto.response.orderDetail;
+package com.doreality.order_management.model.dto.response.order_detail;
 
 import java.util.UUID;
 import lombok.Getter;

@@ -1,9 +1,6 @@
 package com.doreality.order_management.model.dto.request.payment;
 
-import java.time.LocalDateTime;
 import java.util.UUID;
-
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;

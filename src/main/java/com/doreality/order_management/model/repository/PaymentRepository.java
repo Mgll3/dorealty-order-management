@@ -11,10 +11,12 @@ import java.util.UUID;
 public interface PaymentRepository extends JpaRepository<Payment, UUID> {
 
     @Query(value = "exec sp_CreatePayment " +
+            "@customer_order_id = :customerOrderId, " +
             "@customer_email = :custumerEmail, " +
             "@payment_method = :paymentMethod, " +
             "@amount_paid = :amountPaid", nativeQuery = true)
-    public Payment save(@Param("custumerEmail") String custumerEmail,
+    public Payment save(@Param("customerOrderId") UUID customerOrderId,
+            @Param("custumerEmail") String custumerEmail,
             @Param("paymentMethod") String paymentMethod,
             @Param("amountPaid") Double amountPaid);
 }

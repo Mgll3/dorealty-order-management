@@ -1,20 +1,13 @@
 package com.doreality.order_management.controller;
 
-import java.util.UUID;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import com.doreality.order_management.model.dto.request.order.CustomerOrderSaveDto;
-import com.doreality.order_management.model.dto.request.user.AthAnswerDTO;
 import com.doreality.order_management.model.dto.response.order.CustomerOrderResponse;
-import com.doreality.order_management.model.entity.User;
 import com.doreality.order_management.service.implementation.SecurityService;
-import com.doreality.order_management.service.implementation.UserService;
 import com.doreality.order_management.service.interfaces.ICustomerOrderService;
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
