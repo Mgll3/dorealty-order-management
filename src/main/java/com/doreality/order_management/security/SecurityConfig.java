@@ -87,7 +87,7 @@ public class SecurityConfig {
                         "/v3/api-docs/**",
                         "/logs/**")
                 .permitAll() // Permite acceso sin autenticación a las páginas de inicio, registro y login
-                .requestMatchers("/configuracion").hasAuthority("ADMINISTRATOR")
+                .requestMatchers("/configuracion", "/v1/product/**").hasAuthority("ADMIN")
                 .anyRequest().authenticated() // Requiere autenticación para cualquier otra solicitud
                 .and()
                 .httpBasic(); // Configura la autenticación básica HTTP

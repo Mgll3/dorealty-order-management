@@ -1,23 +1,16 @@
 #Workflow name
 name: CI/CD Pipeline
 on:
-  #Manually trigger workflow runs
   workflow_dispatch:
-  #Trigger the workflow on push from the main branch
   push:
     branches:
       - dev
 jobs:
   #Sonar's Job
   sonar:
-    #Depends on test's job
-    #needs: tests
     name: SonarCloud analysis
-    #Run on Ubuntu using the latest version
     runs-on: ubuntu-latest
-    #Job's steps
     steps:
-      #Check-out your repository under $GITHUB_WORKSPACE, so your workflow can access it
       - uses: actions/checkout@v2
       #Set up JDK 17
       - name: Set up JDK
@@ -25,17 +18,13 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      #Set up SonarCloud cache
       - name: Cache SonarCloud packages
-        #This action allows caching dependencies and build outputs to improve workflow execution time.
         uses: actions/cache@v2
         with:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
-      #Set up Maven cache
       - name: Cache Maven packages
-        #This action allows caching dependencies and build outputs to improve workflow execution time.
         uses: actions/cache@v2
         with:
           path: ~/.m2

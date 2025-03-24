@@ -17,27 +17,21 @@ public class OrderManagementApplication {
 	 * ? Crear carpetas y con manejo de errores
 	 * ? Crear entidades y montarlas en la DB
 	 * ? Agregar seguridad
-	 * ?Controladores y services de Create basicos
-	 * Documentar en swagger
-	 * 
-	 * Crear endpoint que valide el rol para poder ingresar spring security"
-	 * Crear Payment endpoint
-	 * 
-	 * 
+	 * ? Controladores y services de Create basicos
+	 * ? Crear Payment endpoint
+	 * ?Documentar en swagger
+	 * ? Hacer que la DB coloque automaticamente con el SP private LocalDate
+	 * ? Agregar Docker
+	 * ? Crear endpoint Product que valide el rol para poder ingresar spring
+	 * security"
+	 * ? Montar diagrama de clases y E.R.
+	 * Logging
+	 * ? Crear varios SP sin conectarlos por tiempo pero dejarlos funcionando
 	 * 
 	 * Montar Interface al repository
 	 * Pruebas Unitarias
 	 * 
 	 * 
-	 * Hacer que la DB coloque automaticamente con el SP private LocalDate
-	 * creationDate;
-	 * 
-	 * private double totalPrice;
-	 * 
-	 * 
-	 * Agregar Docker compose
-	 * Crear Dockerfile
-	 * Montar diagrama de clases y E.R.
 	 * 
 	 */
 

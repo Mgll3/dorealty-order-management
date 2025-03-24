@@ -25,7 +25,7 @@ public class UserController {
     private IUserService userService;
 
     @Operation(summary = "Registrar usuario", description = "Endpoint para registrar un nuevo usuario", tags = {
-            "User" })
+            "Usuario" })
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Usuario registrado correctamente", content = @Content(schema = @Schema(implementation = User.class))),
             @ApiResponse(responseCode = "409", description = "Conflicto - Este correo electrónico ya está registrado", content = @Content(schema = @Schema(implementation = String.class))),
@@ -45,7 +45,7 @@ public class UserController {
     }
 
     @Operation(summary = "Iniciar sesión", description = "Endpoint para autenticar y obtener un token de acceso", tags = {
-            "User" })
+            "Usuario" })
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Autenticación exitosa", content = @Content(schema = @Schema(implementation = AthAnswerDTO.class))),
             @ApiResponse(responseCode = "401", description = "No autorizado - Error al autenticar", content = @Content(schema = @Schema(implementation = AthAnswerDTO.class)))
