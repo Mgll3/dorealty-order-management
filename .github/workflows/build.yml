@@ -1,0 +1,38 @@
+#Workflow name
+name: CI/CD Pipeline
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - dev
+jobs:
+  #Sonar's Job
+  sonar:
+    name: SonarCloud analysis
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      #Set up JDK 17
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Cache SonarCloud packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+      - name: Cache Maven packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('agro-plantation-app/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+      #Analyze project with SonarCloud
+      - name: Analyze with SonarCloud
+        run: mvn -B verify -DskipTests=true sonar:sonar -Dsonar.projectKey=Mgll3_agro-plantation-app  -Dsonar.organization=mgll3 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN --file agro-plantation-app/pom.xml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
